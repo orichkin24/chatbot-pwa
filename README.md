@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ChatBot PWA
+
+A Progressive Web App (PWA) chatbot built with Next.js, TypeScript, and OpenRouter API.
+
+## Features
+
+- 💬 Real-time chat interface
+- 📱 Progressive Web App (installable on mobile/desktop)
+- 🎨 Beautiful UI with Tailwind CSS
+- 🌙 Dark mode support
+- ⚡ Fast and responsive
+- 🤖 Powered by OpenRouter AI models
+
+## Prerequisites
+
+- Node.js 18+
+- npm or yarn
+- OpenRouter API key
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**
+
+```bash
+git clone <your-repo-url>
+cd chatbot-pwa
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Set up environment variables**
+
+Create a `.env.local` file in the root directory:
+
+```bash
+cp .env.example .env.local
+```
+
+Edit `.env.local` and add your OpenRouter API key:
+
+```env
+OPENROUTER_API_KEY=your_api_key_here
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+Get your OpenRouter API key from: https://openrouter.ai/keys
+
+4. **Run the development server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. **Build for production**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **PWA**: next-pwa
+- **AI**: OpenRouter API
+- **Linting**: ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+chatbot-pwa/
+├── app/
+│   ├── api/
+│   │   └── chat/
+│   │       └── route.ts      # Chat API endpoint
+│   ├── layout.tsx            # Root layout with PWA config
+│   ├── page.tsx              # Main chat interface
+│   └── globals.css           # Global styles
+├── public/
+│   └── manifest.json         # PWA manifest
+├── .env.example              # Environment variables template
+└── next.config.ts            # Next.js configuration with PWA
+```
 
-## Deploy on Vercel
+## Customization
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Change AI Model
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Edit `app/api/chat/route.ts` and change the model:
+
+```typescript
+model: "anthropic/claude-3.5-sonnet", // Change to any OpenRouter model
+```
+
+Available models: https://openrouter.ai/models
+
+### Update PWA Configuration
+
+Edit `public/manifest.json` to customize app name, colors, and icons.
+
+## License
+
+MIT
