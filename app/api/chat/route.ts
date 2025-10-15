@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
         "X-Title": "ChatBot PWA",
       },
       body: JSON.stringify({
-        model: "anthropic/claude-3.5-sonnet", // You can change this to any OpenRouter model
+        model: "google/gemini-2.5-flash-lite-preview-09-2025",
         messages: messages,
       }),
     });
